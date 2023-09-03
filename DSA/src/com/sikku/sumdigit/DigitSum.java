@@ -1,4 +1,4 @@
-package com.sikku;
+package com.sikku.sumdigit;
 
 public class DigitSum {
     public static void main(String[] args) {
