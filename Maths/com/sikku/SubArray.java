@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 public class SubArray {
     public static void main(String[] args) {
-        subArray1(new int[]{1, 2, 3, 4});
+//        subArray1(new int[]{1, 2, 3, 4});
+
     }
 
     public static void subArray(int[] ar) {
