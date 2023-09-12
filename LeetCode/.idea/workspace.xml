@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="87f0e1e1-57b5-41b0-ac99-72890e681fbe" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Array/src/com/sikku/median/BestResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Array/src/com/sikku/median/LeetCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Array/src/com/sikku/median/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Array/src/com/sikku/merge/Main.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2VInAXrzBsFRPQhhjDm08iX6mOL" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "D:/GIT/NewDatastructure/LeetCode"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="87f0e1e1-57b5-41b0-ac99-72890e681fbe" name="Changes" comment="" />
+      <created>1694532318410</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1694532318410</updated>
+    </task>
+    <servers />
+  </component>
+</project>
