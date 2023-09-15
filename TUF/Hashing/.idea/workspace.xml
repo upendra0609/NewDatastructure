@@ -7,7 +7,9 @@
     <list default="true" id="3f7012b0-fef9-4eda-ab83-9c314e889c20" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/src/com/sikku/CharacterHashing.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/com/sikku/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/sikku/UsingHashMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Pattern/src/com/sikku/tuf/Pattern.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Pattern/src/com/sikku/tuf/Pattern.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../out/production/Pattern/com/sikku/tuf/Pattern.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../out/production/Pattern/com/sikku/tuf/Pattern.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,7 +38,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.CharacterHashing">
+  <component name="RunManager" selected="Application.UsingHashMap">
     <configuration name="CharacterHashing" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.sikku.CharacterHashing" />
       <module name="Hashing" />
@@ -63,8 +65,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UsingHashMap" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.sikku.UsingHashMap" />
+      <module name="Hashing" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sikku.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.UsingHashMap" />
         <item itemvalue="Application.CharacterHashing" />
         <item itemvalue="Application.Main" />
       </list>
