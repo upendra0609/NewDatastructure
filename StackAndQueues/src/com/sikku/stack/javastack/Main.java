@@ -11,32 +11,40 @@ public class Main {
         int max = Integer.MIN_VALUE;
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter choice");
+        System.out.println("Enter choice \n1: push element\n2: pop element\n3: get maximum\nany other to exit\n");
         int choice = sc.nextInt();
 
-        while (choice != -1) {
+
+        while (true) {
 
             if (choice == 1) {
                 System.out.println("Enter number to push");
                 int n = sc.nextInt();
-                System.out.println(s.push(n)+" is pushed");
+                System.out.println(s.push(n) + " is pushed");
                 if (max < n) {
                     prevMax = max;
                     max = n;
                 }
             } else if (choice == 2) {
-                if (max == s.peek()) {
-                    max = prevMax;
-                    System.out.println(s.pop()+" is removed");
+                if (s.isEmpty()) {
+                    System.out.println("no element are present");
+                } else {
+                    if (max == s.peek()) {
+                        max = prevMax;
+                        System.out.println(s.pop() + " is removed");
+                    }
                 }
             } else if (choice == 3) {
-                System.out.println("maximum number is :"+max);
+                if (s.isEmpty()) {
+                    System.out.println("no element are present");
+                } else {
+                    System.out.println("maximum number is :" + max);
+                }
             } else {
                 break;
             }
-            System.out.println("Enter choice");
+            System.out.println("Enter choice \n1: push element\n2: pop element\n3: get maximum\nany other to exit\n");
             choice = sc.nextInt();
-
         }
     }
 }
