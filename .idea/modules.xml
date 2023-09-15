@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Array/Array.iml" filepath="$PROJECT_DIR$/Array/Array.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LeetCode/LeetCode.iml" filepath="$PROJECT_DIR$/LeetCode/LeetCode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NewDatastructure.iml" filepath="$PROJECT_DIR$/NewDatastructure.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Pattern/Pattern.iml" filepath="$PROJECT_DIR$/Pattern/Pattern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/StackAndQueues/StackAndQueues.iml" filepath="$PROJECT_DIR$/StackAndQueues/StackAndQueues.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TimeComplexity/TimeComplexity.iml" filepath="$PROJECT_DIR$/TimeComplexity/TimeComplexity.iml" />
+    </modules>
+  </component>
+</project>

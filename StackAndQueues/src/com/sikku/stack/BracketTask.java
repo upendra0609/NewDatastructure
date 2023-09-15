@@ -6,7 +6,8 @@ public class BracketTask {
     public static void main(String[] args) {
         Stack<Character> st = new Stack<>();
 //        String str = "{[]{(){}}()[]}";
-        String str = "{()()(){}[]}";
+//        String str = "{()()(){}[]}";
+        String str = "(()((()";
         char[] c = str.toCharArray();
 
         for (char cr : c) {
