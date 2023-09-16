@@ -1,4 +1,4 @@
-package com.sikku.bubblesort;
+package com.sikku.sorting.bubblesort;
 
 public class Recursion {
     public static void main(String[] args) {

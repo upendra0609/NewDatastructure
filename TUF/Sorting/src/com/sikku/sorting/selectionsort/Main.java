@@ -1,4 +1,4 @@
-package com.sikku.selectionsort;
+package com.sikku.sorting.selectionsort;
 
 public class Main {
     public static void main(String[] args) {

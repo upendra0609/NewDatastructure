@@ -1,4 +1,4 @@
-package com.sikku.insertionsort;
+package com.sikku.sorting.insertionsort;
 
 public class Recursion {
     public static void main(String[] args) {

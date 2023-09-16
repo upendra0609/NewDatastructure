@@ -1,4 +1,4 @@
-package com.sikku.merge;
+package com.sikku.sorting.mergesort;
 
 public class Main {
     public static void main(String[] args) {
