@@ -4,7 +4,7 @@ public class LeftRotate {
     public static void main(String[] args) {
         int[] array = {1, 2, 3, 4};
 //        rotateArray(array, array.length, 6);
-        rotateArrayOptimal(array, array.length, 2);
+        rotateArrayOptimal(array, array.length, 1);
         for (int i : array) {
             System.out.print(i + " ");
         }
@@ -40,16 +40,18 @@ public class LeftRotate {
     //    optimal solution
     public static void rotateArrayOptimal(int[] array, int size, int rotateBy) {
         rotateBy %= size;
-        reverseArray(array, 0, rotateBy);
-        reverseArray(array, rotateBy, size);
-        reverseArray(array, 0, size);
+        reverseArray(array, 0, rotateBy-1);
+        reverseArray(array, rotateBy, size-1);
+        reverseArray(array, 0, size-1);
     }
 
     public static void reverseArray(int[] array, int low, int high) {
-        for (int i = low; i < high / 2; i++) {
-            int temp = array[i];
-            array[i] = array[high - i - 1];
-            array[high - i - 1] = temp;
+        while (low<high){
+            int temp = array[low];
+            array[low] = array[high];
+            array[high] = temp;
+            low++;
+            high--;
         }
     }
 }
