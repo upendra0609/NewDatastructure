@@ -1,4 +1,4 @@
-package com.sikku.problem.largest.ifsorted;
+package com.sikku.problem.ifsorted;
 
 public class Main {
     public static void main(String[] args) {
