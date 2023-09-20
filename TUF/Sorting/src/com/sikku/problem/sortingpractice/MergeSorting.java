@@ -1,9 +1,9 @@
-package com.sikku.sorting.mergesort;
+package com.sikku.problem.sortingpractice;
 
-public class Main {
+public class MergeSorting {
     public static void main(String[] args) {
-        int[] array = {7, 6, 5, 4, 3, 2, 1};
-        mergeSort(array, 0, array.length - 1);
+        int[] array = {9, 7, 2, 1, 4, 7, 9, 4, 23, 0};
+        mergeSort(array, 0, array.length-1);
 
         for (int i : array) {
             System.out.print(i + " ");
@@ -19,48 +19,39 @@ public class Main {
         mergeSort(array, low, mid);
         mergeSort(array, mid + 1, high);
         merge(array, low, mid, high);
-
     }
 
     public static void merge(int[] array, int low, int mid, int high) {
+        int[] tempArray = new int[high - low + 1];
+        int tempIndex = 0;
         int left = low;
         int right = mid + 1;
 
-        int[] temp = new int[high-low + 1];
-        int i = 0;
-
-//        merging into sorted array
         while (left <= mid && right <= high) {
             if (array[left] <= array[right]) {
-                temp[i] = array[left];
+                tempArray[tempIndex] = array[left];
                 left++;
             } else {
-                temp[i] = array[right];
+                tempArray[tempIndex] = array[right];
                 right++;
             }
-            i++;
+            tempIndex++;
         }
 
         while (left <= mid) {
-            temp[i] = array[left];
+            tempArray[tempIndex] = array[left];
             left++;
-            i++;
+            tempIndex++;
         }
 
         while (right <= high) {
-            temp[i] = array[right];
+            tempArray[tempIndex] = array[right];
             right++;
-            i++;
+            tempIndex++;
         }
 
-//        copying to original array
-        for (int j: temp){
-            array[low] = j;
-            low++;
+        for (int i = 0; i < tempArray.length; i++) {
+            array[i + low] = tempArray[i];
         }
-
-//        for (int j = low; j <= high; j++) {
-//            array[j] = temp[j-low];
-//        }
     }
 }
