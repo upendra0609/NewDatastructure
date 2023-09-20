@@ -12,7 +12,7 @@ public class Main {
     public static void firstSmallestElement(int[] array, int size) {
         for (int i = 0; i < size; i++) {
             int min = array[i];
-            for (int j = i + 1; j < 2 * size; j++) {
+            for (int j = i + 1; j < 2 * size; j++) {     //optimize this use j < i+size
                 int k = j % 5;
                 if (array[k] < min) {
                     min = array[k];

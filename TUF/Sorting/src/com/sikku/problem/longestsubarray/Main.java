@@ -8,8 +8,9 @@ public class Main {
 //        int[] array = {1, 2, 3, 4, 1, 3, 1};
 //        subArr(array);
 
-        int[] array = {1, 2,0,0,0,0,0, 3, 1, 1, 1, 1, 4, 2, 3};
-        longestSubArrayForZeroAlso(array, 3);
+        int[] array = {1, 2, 3, 4, 0, 0, 0, 0, 0, 0, 0, 2, 2, 3};
+//        longestSubArrayForZeroAlso(array, 3);
+        longSubArray(array, 3);
     }
 
     //brute force solution O(n3)
@@ -112,6 +113,35 @@ public class Main {
             }
             low++;
         }
+        System.out.println(length);
+    }
+
+    //optimal solution (for positives only)
+    public static void longSubArray(int[] array, int k) {
+        int n = array.length;
+        int i = -1, j = 0;
+        int sum = 0;
+        int length = 0;
+
+        while (i < n) {
+            while (j < i && sum > k) {
+                sum -= array[j];
+                j++;
+            }
+
+            if (sum == k) {
+                if ((i - j + 1) > length) {
+                    length = i - j + 1;
+                }
+            }
+
+            i++;
+            if (i < n) {
+                sum += array[i];
+            }
+        }
+
+
         System.out.println(length);
     }
 }
