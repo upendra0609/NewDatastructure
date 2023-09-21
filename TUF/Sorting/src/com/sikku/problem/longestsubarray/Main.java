@@ -1,7 +1,6 @@
 package com.sikku.problem.longestsubarray;
 
 import java.util.HashMap;
-import java.util.Iterator;
 
 public class Main {
     public static void main(String[] args) {
