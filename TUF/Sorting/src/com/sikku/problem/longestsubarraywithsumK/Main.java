@@ -1,4 +1,4 @@
-package com.sikku.problem.longestsubarray;
+package com.sikku.problem.longestsubarraywithsumK;
 
 import java.util.HashMap;
 
