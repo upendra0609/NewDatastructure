@@ -3,8 +3,8 @@ package com.sikku.problem.rearrangeArrayElementBySign;
 public class EqualPositiveAndNegative {
     public static void main(String[] args) {
         int[] array = {3, 1, -2, -5, 2, -4};
-//        int[] ar = bruteSolution(array);
-        int[] ar = optimalSolution(array);
+        int[] ar = bruteSolution(array);
+//        int[] ar = optimalSolution(array);
 
         for (int i : ar) {
             System.out.print(i + " ");
@@ -29,12 +29,12 @@ public class EqualPositiveAndNegative {
 
         j = 0;
         k = 0;
-        for (int i = 0; i < array.length; i++) {
-            if (i % 2 == 0) {
-                array[i] = positive[j++];
-            } else {
-                array[i] = negative[k++];
-            }
+        for (int i = 0; i < array.length / 2; i++) {
+//            if (i % 2 == 0) {
+                array[2 * i] = positive[j++];
+//            } else {
+                array[2 * i + 1] = negative[k++];
+//            }
         }
 
         return array;
@@ -48,10 +48,10 @@ public class EqualPositiveAndNegative {
         for (int i = 0; i < array.length; i++) {
             if (array[i] < 0) {
                 tempArray[k] = array[i];
-                k +=2;
-            }else {
+                k += 2;
+            } else {
                 tempArray[j] = array[i];
-                j=j+2;
+                j = j + 2;
             }
         }
 
