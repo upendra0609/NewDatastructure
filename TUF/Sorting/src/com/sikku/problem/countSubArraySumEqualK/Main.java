@@ -15,7 +15,6 @@ public class Main {
 
         //sum, count(number of frequency sum has occurred)
         HashMap<Integer, Integer> map = new HashMap<>();
-
         //adding 0 comes once in map (1,2) check this case to get reason behind this
         map.put(sum, 1);
 
