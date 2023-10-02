@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        int[] array = {10, 22, 12, 3, 0, 6};
+        int[] array = {10, 22, 12, 3,6, 0, 6};
         ArrayList<Integer> leader = leader(array);
 
         for (int i: leader){

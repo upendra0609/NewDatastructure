@@ -2,7 +2,7 @@ package com.sikku.problem.nextPermutation;
 
 public class Main {
     public static void main(String[] args) {
-        int[] array = {1, 3, 2};
+        int[] array = {2,3,9,5,4,2,0,0};
         nextPer(array);
 
         for (int i : array) {

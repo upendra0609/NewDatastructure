@@ -2,7 +2,7 @@ package com.sikku.problem.longestsubarrayKadane;
 
 public class Kadane {
     public static void main(String[] args) {
-        int[] array = {4,-2,5};
+        int[] array = {-2, -3, 4, -1, -2, 1, 5, -3, 8};
         System.out.println(maxSubArray(array));
 
     }
@@ -28,7 +28,7 @@ public class Kadane {
             }
         }
 
-        for (int i = start; i <= end; i++) {
+        for (int i = start + 1; i <= end; i++) {
             System.out.print(array[i] + " ");
         }
         System.out.println();
