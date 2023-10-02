@@ -44,9 +44,12 @@ public class Main {
             } else if (l2 > r1) {
                 low = mid1 + 1;
             } else {
-//                float res = (float)(Math.min(r1, r2) + Math.max(l1, l2)) / 2;
-
-                System.out.println(Math.min(r1, r2));
+                if ((n1 + n2) % 2 == 0) {
+                    float res = (float) (Math.min(r1, r2) + Math.max(l1, l2)) / 2;
+                    System.out.println(res);
+                } else {
+                    System.out.println(Math.min(r1, r2));
+                }
                 break;
             }
             mid1 = (low + high) / 2;
