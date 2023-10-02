@@ -12,12 +12,12 @@ public class MoveZeroAtLast {
 
     public static void moveZero(int[] array) {
         int i = 0;
-        int j = 0;
-        
+
+
         while (array[i] != 0) {
             i++;
         }
-        j = i + 1;
+        int j = i + 1;
 
         while (j < array.length) {
             if (array[j] != 0) {
