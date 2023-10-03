@@ -3,7 +3,6 @@ package com.sikku.practice;
 public class DutchFlag {
     public static void main(String[] args) {
         int[] array = {2, 2, 1, 0, 0, 1,0,0};
-        sort(array);
 
         for (int i: array){
             System.out.print(i+" ");
