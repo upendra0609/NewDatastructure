@@ -8,8 +8,8 @@ public class Main {
 //        subArr(array);
 
         int[] array = {1, 2, 3, 4, 0, 0, 0, 0, 0, 0, 0, 2, 2, 3};
-//        longestSubArrayForZeroAlso(array, 3);
-        longSubArray(array, 3);
+        longestSubArrayForZeroAlso(array, 6);
+//        longSubArray(array, 3);
     }
 
     //brute force solution O(n3)
@@ -92,14 +92,16 @@ public class Main {
         int length = 0;
         int sum = 0;
         HashMap<Integer, Integer> hash = new HashMap<>();
+        //no need to check for first time length line no 101
+        hash.put(0,-1);
 
         while (low <= high) {
             sum += array[low];
 
             //checking first time length
-            if (sum == k) {
-                length = low + 1;
-            }
+//            if (sum == k) {
+//                length = low + 1;
+//            }
 
             if (hash.containsKey(sum - k)) {
                 int len = low - hash.get(sum - k);
