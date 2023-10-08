@@ -4,10 +4,11 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        int[] array1 = {1, 3, 5, 7};
-        int[] array2 = {0, 2, 6, 8, 9};
+        int[] array1 = {1, 3, 5, 7,0,0,0,0};
+        int[] array2 = {2, 6, 8, 9};
 //        merge(array1, array2);
-        gapMethod(array1, array2);
+//        gapMethod(array1, array2);
+        merge(array1,array2);
 
     }
 
@@ -44,25 +45,42 @@ public class Main {
         while (gap != 1) {
             gap = (int) Math.ceil((double) gap / 2);
             int left = 0;
-            int right = left + gap;
-            while (left < m || right < (m + n)) {
-                if (right < m) {
-                    if (array1[left] > array1[right]) {
-                        int temp = array1[left];
-                        array1[left] = array1[right];
-                        array1[right] = temp;
-                    }
-                } else {
-                    int i = right % m;
-                    if (array1[left] > array2[i]) {
-                        int temp = array1[left];
-                        array1[left] = array2[i];
-                        array2[i] = temp;
-                    }
+            int right = gap;
+            while (right < (m + n)) {
+                if (left < m && right < m) {
+                    swap(array1, array1, left, right);
+//                    if (array1[left] > array1[right]) {
+//                        int temp = array1[left];
+//                        array1[left] = array1[right];
+//                        array1[right] = temp;
+//                    }
+                } else if (left >= m && right >= m) {
+                    swap(array2, array2, left - m, right - m);
+//                    if (array2[left - m] > array2[right - m]) {
+//                        int temp = array2[left - m];
+//                        array2[left - m] = array2[right - m];
+//                        array2[right - m] = temp;
+//                    }
+                } else if (left < m && right >= m) {
+                    swap(array1, array2, left, right - m);
+//                    if (array1[left] > array2[right - m]) {
+//                        int temp = array1[left];
+//                        array1[left] = array2[right - m];
+//                        array2[right - m] = temp;
+//                    }
                 }
-                right++;
                 left++;
+                right++;
             }
+        }
+        System.out.println();
+    }
+
+    private static void swap(int[] ar1, int[] ar2, int m, int n) {
+        if (ar1[m] > ar2[n]) {
+            int temp = ar1[m];
+            ar1[m] = ar2[n];
+            ar2[n] = temp;
         }
     }
 }

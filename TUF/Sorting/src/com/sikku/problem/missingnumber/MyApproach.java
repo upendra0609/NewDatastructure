@@ -6,7 +6,7 @@ public class MyApproach {
         System.out.println(missingNum(array));
     }
 
-    //elements mus be in ascending sorting order
+    //elements must be in ascending sorting order
     public static int missingNum(int[] array) {
         int missing = 1;
 
