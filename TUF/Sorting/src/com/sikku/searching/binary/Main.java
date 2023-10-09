@@ -3,7 +3,7 @@ package com.sikku.searching.binary;
 public class Main {
     public static void main(String[] args) {
         int[] array = {3, 4, 6, 7, 8, 9, 12, 16, 17};
-        int res = recursiveBinary(array, 3, 0, array.length - 1);
+        int res = recursiveBinary(array, 4, 0, array.length - 1);
         System.out.println(res);
     }
 
@@ -33,10 +33,8 @@ public class Main {
         if (array[mid] == target) {
             return mid;
         } else if (array[mid] < target) {
-            low = mid + 1;
-        } else if (array[mid] > target) {
-            high = mid - 1;
+            return recursiveBinary(array, target, mid + 1, high);
         }
-        return recursiveBinary(array, target, low, high);
+        return recursiveBinary(array, target, low, mid - 1);
     }
 }
