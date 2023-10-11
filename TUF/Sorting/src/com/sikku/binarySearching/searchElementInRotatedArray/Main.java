@@ -1,4 +1,4 @@
-package com.sikku.searching.searchElementInRotatedArray;
+package com.sikku.binarySearching.searchElementInRotatedArray;
 
 public class Main {
     public static void main(String[] args) {

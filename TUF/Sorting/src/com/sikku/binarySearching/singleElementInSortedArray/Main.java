@@ -1,4 +1,4 @@
-package com.sikku.searching.singleElementInSortedArray;
+package com.sikku.binarySearching.singleElementInSortedArray;
 
 import java.util.ArrayList;
 

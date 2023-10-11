@@ -1,4 +1,4 @@
-package com.sikku.searching.peakElement;
+package com.sikku.binarySearching.peakElement;
 
 public class Main {
     public static void main(String[] args) {

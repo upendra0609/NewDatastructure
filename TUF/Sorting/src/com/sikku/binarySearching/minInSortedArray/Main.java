@@ -1,4 +1,4 @@
-package com.sikku.searching.minInSortedArray;
+package com.sikku.binarySearching.minInSortedArray;
 
 public class Main {
     public static void main(String[] args) {

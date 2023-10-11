@@ -1,4 +1,4 @@
-package com.sikku.searching.binary;
+package com.sikku.binarySearching.binary;
 
 public class Main {
     public static void main(String[] args) {
