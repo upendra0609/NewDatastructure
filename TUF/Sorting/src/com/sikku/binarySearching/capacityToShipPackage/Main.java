@@ -33,5 +33,35 @@ public class Main {
         return -1;
     }
 
-    
+    public static int optimal(int[] weight, int days) {
+        int max = 0;
+        int min = Integer.MIN_VALUE;
+        for (int i : weight) {
+            max += i;
+            min = Math.max(min, i);
+        }
+
+        int result = -1;
+
+        while (min <= max) {
+            int mid = (min + max) / 2;
+            int sum = 0;
+            int d = 1;
+            for (int i : weight) {
+                if (sum + i <= mid) {
+                    sum += i;
+                } else {
+                    d++;
+                    sum = i;
+                }
+            }
+            if (d <= days) {
+                result = mid;
+                max = mid - 1;
+            } else {
+                min = mid + 1;
+            }
+        }
+        return result;
+    }
 }
