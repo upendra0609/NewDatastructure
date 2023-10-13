@@ -37,5 +37,38 @@ public class Main {
         return -1;
     }
 
-    
+    public static int optimal(int[] array, int students) {
+        if (students > array.length) {
+            return -1;
+        }
+
+        int min = Integer.MIN_VALUE;
+        int max = 0;
+        for (int i : array) {
+            min = Math.max(min, i);
+            max += i;
+        }
+
+        while (min <= max) {
+            int sum = 0;
+            int count = 1;
+            int mid = (min + max) / 2;
+            for (int i = 0; i < array.length; i++) {
+                sum += array[i];
+                if (sum > mid) {
+                    count++;
+                    sum = array[i];
+                } else if (sum == mid && i!= array.length-1) {
+                    count++;
+                    sum = 0;
+                }
+            }
+            if (count > students) {
+                min = mid + 1;
+            } else {
+                max = mid - 1;
+            }
+        }
+        return min;
+    }
 }
