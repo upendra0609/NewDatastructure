@@ -14,5 +14,6 @@ public class Main {
         int[] ar = {1,2};
         int x = Arrays.binarySearch(ar,2);
 
+        
     }
 }
