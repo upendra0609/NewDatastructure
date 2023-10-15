@@ -5,7 +5,53 @@ import java.util.PriorityQueue;
 
 public class Main {
 
-    
+    static class Pair implements Comparable<Pair> {
+        double maximumLength;
+        int index;
+
+        public Pair(double maximumLength, int index) {
+            this.maximumLength = maximumLength;
+            this.index = index;
+        }
+
+        public double getMaximumLength() {
+            return maximumLength;
+        }
+
+        public void setMaximumLength(double maximumLength) {
+            this.maximumLength = maximumLength;
+        }
+
+        public int getIndex() {
+            return index;
+        }
+
+        public void setIndex(int index) {
+            this.index = index;
+        }
+
+        @Override
+        public String toString() {
+            return "Pair{" +
+                    "maximumLength=" + maximumLength +
+                    ", index=" + index +
+                    '}';
+        }
+
+        //decreasing order
+        @Override
+        public int compareTo(Pair p2) {
+            if (this.maximumLength < p2.maximumLength) {
+                return 1;
+            } else if (this.maximumLength > p2.maximumLength) {
+                return -1;
+            } else {
+                Integer i = this.index;
+                Integer j = p2.index;
+                return -i.compareTo(j);
+            }
+        }
+    }
 
     public static void main(String[] args) {
         int[] array = {1 ,2 ,3 ,4 ,5 ,6 ,7 ,8 ,9 ,10};
