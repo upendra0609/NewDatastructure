@@ -5,53 +5,7 @@ import java.util.PriorityQueue;
 
 public class Main {
 
-    static class Pair implements Comparable<Pair> {
-        double maximumLength;
-        int index;
-
-        public Pair(double maximumLength, int index) {
-            this.maximumLength = maximumLength;
-            this.index = index;
-        }
-
-        public double getMaximumLength() {
-            return maximumLength;
-        }
-
-        public void setMaximumLength(double maximumLength) {
-            this.maximumLength = maximumLength;
-        }
-
-        public int getIndex() {
-            return index;
-        }
-
-        public void setIndex(int index) {
-            this.index = index;
-        }
-
-        @Override
-        public String toString() {
-            return "Pair{" +
-                    "maximumLength=" + maximumLength +
-                    ", index=" + index +
-                    '}';
-        }
-
-        //decreasing order
-        @Override
-        public int compareTo(Pair p2) {
-            if (this.maximumLength < p2.maximumLength) {
-                return 1;
-            } else if (this.maximumLength > p2.maximumLength) {
-                return -1;
-            } else {
-                Integer i = this.index;
-                Integer j = p2.index;
-                return -i.compareTo(j);
-            }
-        }
-    }
+    
 
     public static void main(String[] args) {
         int[] array = {1 ,2 ,3 ,4 ,5 ,6 ,7 ,8 ,9 ,10};
@@ -88,5 +42,25 @@ public class Main {
         return result;
     }
 
-    
+    public static double optimal(int[] array, int station) {
+        int n = array.length - 1;
+        int[] howMany = new int[n];
+        PriorityQueue<Pair> queue = new PriorityQueue<>();
+
+        for (int i = 0; i < n; i++) {
+            double diff = array[i + 1] - array[i];
+            queue.add(new Pair(diff, i));
+        }
+
+
+        for (int i = 1; i <= station; i++) {
+            Pair p = queue.poll();
+            assert p != null;
+            howMany[p.index]++;
+            double diff = (p.maximumLength * howMany[p.index]) / (double) (howMany[p.index] + 1);
+            queue.add(new Pair(diff, p.index));
+        }
+        return Objects.requireNonNull(queue.poll()).maximumLength;
+    }
+
 }
