@@ -56,24 +56,24 @@ public class Main {
         return index;
     }
 
-    public static int maximumOnesRow(ArrayList<ArrayList<Integer>> array, int n, int m)
-    {
-        int index =-1;
-        int count =0;
+    public static int maximumOnesRow(ArrayList<ArrayList<Integer>> array, int n, int m) {
+        int index = -1;
+        int count = 0;
 
-        for(int i=0; i<n; i++){
-            int low =0;
-            int high =m-1;
+        for (int i = 0; i < n; i++) {
+            int low = 0;
+            int high = m - 1;
             int temp = 0;
-            for(int j=0; j<m; j++){
-                if(array.get(i).get(mid)==1){
-                    high = mid-1;
-                    temp = array.get(i).size() - mid;
-                }else{
-                    low = mid+1;
+            for (int j = 0; j < m; j++) {
+                int mid = (low + high) / 2;
+                if (array.get(i).get(mid) == 1) {
+                    high = mid - 1;
+                    temp = m - mid;
+                } else {
+                    low = mid + 1;
                 }
             }
-            if(count<temp){
+            if (count < temp) {
                 count = temp;
                 index = i;
             }
