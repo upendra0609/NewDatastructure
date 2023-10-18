@@ -1,2 +1,2 @@
 # NewDatastructure
-new datastructure code
+datastructure code
