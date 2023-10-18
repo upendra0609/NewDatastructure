@@ -2,6 +2,14 @@ package com.sikku.binarySearching.peakElement2dArray;
 
 public class Main {
     public static void main(String[] args) {
+        int[][] array = {{2,3,5,9},
+                {1,5,8,12},
+                {4,12,13,22},
+                {8,10,16,23}};
+        int[] ar = optimal(array);
+        for (int i: ar){
+            System.out.print(i+" ");
+        }
 
     }
 
