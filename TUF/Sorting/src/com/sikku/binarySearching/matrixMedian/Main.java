@@ -29,4 +29,25 @@ public class Main {
         return low;
     }
 
+    public static int countSmallEqual(int[][] matrix, int target, int m, int n) {
+
+        int count = 0;
+        for (int i = 0; i < m; i++) {
+            int index = -1;
+            int low = 0;
+            int high = n - 1;
+            while (low <= high) {
+                int mid = (low + high) / 2;
+                if (matrix[i][mid] <= target) {
+                    index = mid;
+                    low = mid + 1;
+                } else {
+                    high = mid - 1;
+                }
+            }
+            count += index + 1;
+        }
+        return count;
+    }
+
 }
