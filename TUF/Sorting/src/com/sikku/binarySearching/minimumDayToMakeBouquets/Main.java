@@ -39,7 +39,7 @@ public class Main {
     }
 
     public static int optimal(int[] array, int n, int k) {
-        int minimumDay = Arrays.stream(array).min().orElse(0);
+        int minimumDay = Arrays.stream(array).min().orElse(0);   //orElse(0) bcz Arrays.stream(array).min() return Optional and if this return null in that case we are returning 0
         int maximumDay = Arrays.stream(array).max().orElse(0);
 
         if (n * k > array.length) {
