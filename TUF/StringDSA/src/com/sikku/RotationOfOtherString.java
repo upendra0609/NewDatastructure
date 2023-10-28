@@ -20,6 +20,6 @@ public class RotationOfOtherString {
     }
 
     public static boolean optimal(String s, String goal){
-
+        return true;
     }
 }
