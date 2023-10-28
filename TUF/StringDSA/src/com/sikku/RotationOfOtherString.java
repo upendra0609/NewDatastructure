@@ -2,8 +2,8 @@ package com.sikku;
 
 public class RotationOfOtherString {
     public static void main(String[] args) {
-        System.out.println(brute("abcde","cdeab"));
-        System.out.println(brute("abcde","abced"));
+        System.out.println(optimal("abcde","cdeab"));
+        System.out.println(optimal("abcde","abced"));
     }
 
     public static boolean brute(String s, String goal) {
@@ -20,6 +20,7 @@ public class RotationOfOtherString {
     }
 
     public static boolean optimal(String s, String goal){
-        return true;
+        if(s.length()!=goal.length()) return false;
+        return (s+s).contains(goal);
     }
 }
