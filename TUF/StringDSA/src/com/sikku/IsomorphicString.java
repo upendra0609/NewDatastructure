@@ -7,6 +7,9 @@ public class IsomorphicString {
         System.out.println(isIsomorphic("egg", "foo"));
         System.out.println(isIsomorphic("bar", "foo"));
         System.out.println(isIsomorphic("paper", "title"));
+
+        StringBuilder sbr = new StringBuilder("afa"+"afaf");
+        "as".contentEquals(sbr);
     }
 
     public static boolean isIsomorphic(String s1, String s2) {
