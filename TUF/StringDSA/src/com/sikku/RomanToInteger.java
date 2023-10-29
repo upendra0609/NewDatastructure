@@ -7,12 +7,12 @@ public class RomanToInteger {
     }
 
     public static int getInt(String s) {
-        short i = 1;
+        String i = "aa";
 
         switch (i){
-            case 1:
+            case "":
                 return 1;
-            case 2:
+            case "a":
                 return 2;
             default:
                 return 3;
