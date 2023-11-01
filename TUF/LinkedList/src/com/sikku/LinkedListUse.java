@@ -30,6 +30,13 @@ public class LinkedListUse {
         }
     }
 
+    public static void reversePrintRecursive(Node<Integer> head) {
+        if (head != null) {
+            printRecursive(head.next);
+            System.out.println(head.data);
+        }
+    }
+
     public static int get(Node<Integer> head, int position) {
         Node<Integer> temp = head;
         int i = 0;
@@ -63,6 +70,28 @@ public class LinkedListUse {
     }
 
     public static Node<Integer> insert(Node<Integer> head, int value, int position) {
+        if (position == 0) {
+            Node<Integer> n = new Node<>(value);
+            n.next = head;
+            //returning new head
+            return n;
+        }
+
+        Node<Integer> temp = head;
+        int tempPosition = 1;
+        while (tempPosition <= position && temp != null) {
+            if (position == tempPosition) {
+                Node<Integer> n = new Node<>(value);
+                n.next = temp.next;
+                temp.next = n;
+                return head;
+            }
+            tempPosition++;
+            temp = temp.next;
+        }
+        return head;
+    }
+    public static Node<Integer> insertRecursive(Node<Integer> head, int value, int position) {
         if (position == 0) {
             Node<Integer> n = new Node<>(value);
             n.next = head;
