@@ -29,10 +29,19 @@ public class LinkedListUse {
             printRecursive(head.next);
         }
     }
+
     public static void reversePrintRecursive(Node<Integer> head) {
         if (head != null) {
             printRecursive(head.next);
             System.out.println(head.data);
+        }
+    }
+
+    public static Node<Integer> reverse(Node<Integer> head) {
+        if (head.next == null) {
+            return head;
+        }else {
+            return null;
         }
     }
 
