@@ -22,8 +22,16 @@ public class LinkedListUse {
         }
     }
 
+    public static void increment(Node<Integer> head) {
+        while (head != null) {
+            head.data++;
+            head = head.next;
+        }
+    }
+
     public static void main(String[] args) {
         Node<Integer> head = createLinkedList();
+        increment(head);
         print(head);
     }
 }
