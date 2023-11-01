@@ -23,7 +23,14 @@ public class LinkedListUse {
         }
     }
 
-    public static int print(Node<Integer> head, int position) {
+    public static void printRecursive(Node<Integer> head) {
+        if (head != null) {
+            System.out.println(head.data);
+            printRecursive(head.next);
+        }
+    }
+
+    public static int get(Node<Integer> head, int position) {
         Node<Integer> temp = head;
         int i = 0;
         int result = 0;
@@ -133,9 +140,9 @@ public class LinkedListUse {
 //        head = insert(head, 1, 5);
 //        print(head);
 //        head = insert(head, 1, 16);
-        head = deleteNode(head, 14);
-
-        print(head);
+//        head = deleteNode(head, 14);
+//        print(head);
+        printRecursive(head);
 
 
     }
