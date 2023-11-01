@@ -59,12 +59,13 @@ public class LinkedListUse {
         if (position == 0) {
             Node<Integer> n = new Node<>(value);
             n.next = head;
+            //returning new head
             return n;
         }
 
         Node<Integer> temp = head;
         int tempPosition = 1;
-        while (tempPosition <= position) {
+        while (tempPosition <= position && temp != null) {
             if (position == tempPosition) {
                 Node<Integer> n = new Node<>(value);
                 n.next = temp.next;
@@ -77,7 +78,22 @@ public class LinkedListUse {
         return head;
     }
 
-    public static void deleteNode(Node<Integer> node) {
+    public static Node<Integer> deleteNode(Node<Integer> head, int position) {
+        if (position == 0) {
+            return head.next;
+        }
+
+        Node<Integer> temp = head;
+        int tempPosition = 1;
+        while (tempPosition <= position && temp != null) {
+            if (position == tempPosition) {
+                temp.next = temp.next.next;
+                return head;
+            }
+            tempPosition++;
+            temp = temp.next;
+        }
+        return head;
     }
 
     public static Node<Integer> takeInput() {
@@ -114,8 +130,11 @@ public class LinkedListUse {
 
 //        System.out.println(print(head, 2));
 //        Node<Integer> head = takeInput();
-        head = insert(head, 1, 0);
-        head = insert(head,1,6);
+//        head = insert(head, 1, 5);
+//        print(head);
+//        head = insert(head, 1, 16);
+        head = deleteNode(head, 14);
+
         print(head);
 
 
