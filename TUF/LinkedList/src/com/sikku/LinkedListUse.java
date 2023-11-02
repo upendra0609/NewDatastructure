@@ -40,9 +40,12 @@ public class LinkedListUse {
     public static Node<Integer> reverse(Node<Integer> head) {
         if (head.next == null) {
             return head;
-        }else {
-            return null;
+        } else {
+            Node<Integer> smallNode = reverse(head.next);
+            Node<Integer> tail = smallNode;
+
         }
+        return null;
     }
 
     public static int get(Node<Integer> head, int position) {
