@@ -201,6 +201,26 @@ public class LinkedListUse {
         return false;
     }
 
+    public static int lengthOfLoop(Node<Integer> head) {
+        Node<Integer> slow = head;
+        Node<Integer> fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                slow = slow.next;
+                int count = 1;
+                while (slow != fast) {
+                    slow = slow.next;
+                    count++;
+                }
+                return count;
+            }
+        }
+        return 0;
+    }
+
     public static void main(String[] args) {
         Node<Integer> head = createLinkedList();
 //        increment(head);
