@@ -38,11 +38,20 @@ public class LinkedListUse {
     }
 
     public static Node<Integer> reverse(Node<Integer> head) {
+        Node<Integer> dummy = null;
+        while (head != null) {
+            Node<Integer> next = head.next;
+            head.next = dummy;
+            dummy = head;
+            head = next;
+        }
+        return dummy;
+    }
+
+    public static Node<Integer> reverseRecursive(Node<Integer> head) {
         if (head.next == null) {
             return head;
         } else {
-            Node<Integer> smallNode = reverse(head.next);
-            Node<Integer> tail = smallNode;
 
         }
         return null;
@@ -177,9 +186,12 @@ public class LinkedListUse {
 //        print(head);
 //        printRecursive(head);
 
-        Node<Integer> n = null;
-
-        head = insertRecursive(n, 12, 2);
+//        Node<Integer> n = null;
+//
+//        head = insertRecursive(n, 12, 2);
+//        print(head);
+        head = null;
+        head = reverse(head);
         print(head);
 
 
