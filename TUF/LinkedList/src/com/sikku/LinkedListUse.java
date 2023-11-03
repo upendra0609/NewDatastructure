@@ -198,9 +198,7 @@ public class LinkedListUse {
                 return true;
             }
         }
-
         return false;
-
     }
 
     public static void main(String[] args) {
