@@ -1,5 +1,6 @@
 package com.sikku;
 
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class LinkedListUse {
@@ -173,6 +174,23 @@ public class LinkedListUse {
         return head;
     }
 
+    public static boolean linkedListCycle(Node<Integer> head) {
+        HashSet<Node<Integer>> hash = new HashSet<>();
+        while (head.next != null) {
+            if (!hash.contains(head)) {
+                hash.add(head);
+                head = head.next;
+            } else {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean linkedListCycleOptimal(Node<Integer> head) {
+        
+    }
+
     public static void main(String[] args) {
         Node<Integer> head = createLinkedList();
 //        increment(head);
@@ -192,7 +210,8 @@ public class LinkedListUse {
 //
 //        head = insertRecursive(n, 12, 2);
 //        print(head);
-        head = reverseRecursive(head);
+//        head = reverseRecursive(head);
+
         print(head);
 
 
