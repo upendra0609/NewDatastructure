@@ -220,12 +220,40 @@ public class LinkedListUse {
         }
         return 0;
     }
-    public Node<Integer> oddEvenList(Node<Integer> head) {
-        return null;
+
+    public static Node<Integer> oddEvenList(Node<Integer> head) {
+        // for odd
+        Node<Integer> evenHead = head;
+        // for even
+        Node<Integer> oddHead = head;
+        while (evenHead != null && evenHead.data % 2 != 0) {
+            evenHead = evenHead.next;
+        }
+
+        while (oddHead != null && oddHead.data % 2 == 0) {
+            oddHead = oddHead.next;
+        }
+        Node<Integer> i = evenHead;
+        Node<Integer> tempEven = evenHead;
+        Node<Integer> j = oddHead;
+        while (i != null && j != null) {
+            j = j.next;
+            i = i.next;
+            while (i.data % 2 != 0) {
+                i = i.next;
+            }
+            while (j.data % 2 == 0) {
+                j = j.next;
+            }
+            j = j.next;
+            tempEven.next = i;
+        }
+        oddHead.next = tempEven;
+        return head;
     }
 
     public static void main(String[] args) {
-        Node<Integer> head = createLinkedList();
+//        Node<Integer> head = createLinkedList();
 //        increment(head);
 //        print(head);
 //        System.out.println(size(head));
@@ -244,8 +272,10 @@ public class LinkedListUse {
 //        head = insertRecursive(n, 12, 2);
 //        print(head);
 //        head = reverseRecursive(head);
-
+        Node<Integer> head = takeInput();
         print(head);
+//        oddEvenList(head);
+//        print(head);
 
 
     }
