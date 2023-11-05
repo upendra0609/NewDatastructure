@@ -220,6 +220,9 @@ public class LinkedListUse {
         }
         return 0;
     }
+    public Node<Integer> oddEvenList(Node<Integer> head) {
+        return null;
+    }
 
     public static void main(String[] args) {
         Node<Integer> head = createLinkedList();
