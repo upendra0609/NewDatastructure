@@ -288,6 +288,10 @@ public class LinkedListUse {
         return head;
     }
 
+    public static Node<Integer> mergeTwoSorted(Node<Integer> first, Node<Integer> second) {
+
+    }
+
     public static void main(String[] args) {
 //        Node<Integer> head = createLinkedList();
 //        increment(head);
