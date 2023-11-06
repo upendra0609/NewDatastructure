@@ -170,7 +170,7 @@ public class LinkedListUse {
             num = sc.nextInt();
             count++;
         }
-        System.out.println(count);
+//        System.out.println(count);
         return head;
     }
 
@@ -221,35 +221,49 @@ public class LinkedListUse {
         return 0;
     }
 
-    public static Node<Integer> oddEvenList(Node<Integer> head) {
-        // for odd
-        Node<Integer> evenHead = head;
-        // for even
+    public static Node<Integer> oddEvenValueList(Node<Integer> head) {
         Node<Integer> oddHead = head;
+        Node<Integer> evenHead = head;
+        while (oddHead != null && oddHead.data % 2 == 0) {
+            oddHead = oddHead.next;
+        }
+
         while (evenHead != null && evenHead.data % 2 != 0) {
             evenHead = evenHead.next;
         }
 
-        while (oddHead != null && oddHead.data % 2 == 0) {
-            oddHead = oddHead.next;
-        }
-        Node<Integer> i = evenHead;
         Node<Integer> tempEven = evenHead;
-        Node<Integer> j = oddHead;
-        while (i != null && j != null) {
+        Node<Integer> tempOdd = oddHead;
+        Node<Integer> i = oddHead;
+        Node<Integer> j = evenHead;
+
+        while (j != null && i != null) {
             j = j.next;
             i = i.next;
-            while (i.data % 2 != 0) {
+
+            while (i != null && i.data % 2 == 0) {
                 i = i.next;
             }
-            while (j.data % 2 == 0) {
+
+            while (j != null && j.data % 2 != 0) {
                 j = j.next;
             }
-            j = j.next;
-            tempEven.next = i;
+            if (i != null) {
+                oddHead.next = i;
+                oddHead = i;
+            }
+
+            if (j != null) {
+                evenHead.next = j;
+                evenHead = j;
+            }
         }
         oddHead.next = tempEven;
-        return head;
+        evenHead.next = null;
+        return tempOdd;
+    }
+    public static Node<Integer> oddEvenNodeList(Node<Integer> head){
+        return null;
     }
 
     public static void main(String[] args) {
@@ -273,9 +287,9 @@ public class LinkedListUse {
 //        print(head);
 //        head = reverseRecursive(head);
         Node<Integer> head = takeInput();
-        print(head);
-//        oddEvenList(head);
 //        print(head);
+        head = oddEvenValueList(head);
+        print(head);
 
 
     }
