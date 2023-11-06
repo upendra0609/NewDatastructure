@@ -289,7 +289,39 @@ public class LinkedListUse {
     }
 
     public static Node<Integer> mergeTwoSorted(Node<Integer> first, Node<Integer> second) {
+        Node<Integer> tempHead = null;
+        Node<Integer> head = null;
 
+        while (first != null && second != null) {
+            if (first.data <= second.data) {
+                if (head == null) {
+                    head = first;
+                } else {
+                    head.next = first;
+                    head = head.next;
+                }
+                first = first.next;
+            } else {
+                if (head == null) {
+                    head = second;
+                } else {
+                    head.next = second;
+                    head = head.next;
+                }
+                second = second.next;
+            }
+            if (tempHead == null) {
+                tempHead = head;
+            }
+        }
+
+        if (head != null && first != null) {
+            head.next = first;
+        }
+        if (head != null && second != null) {
+            head.next = second;
+        }
+        return tempHead;
     }
 
     public static void main(String[] args) {
@@ -312,9 +344,13 @@ public class LinkedListUse {
 //        head = insertRecursive(n, 12, 2);
 //        print(head);
 //        head = reverseRecursive(head);
-        Node<Integer> head = takeInput();
+//        Node<Integer> head = takeInput();
 //        print(head);
-        head = removeNthFromEnd(head, 2);
+//        head = removeNthFromEnd(head, 2);
+
+        Node<Integer> first = takeInput();
+        Node<Integer> second = takeInput();
+        Node<Integer> head = mergeTwoSorted(first, second);
         print(head);
 
 
