@@ -262,8 +262,30 @@ public class LinkedListUse {
         evenHead.next = null;
         return tempOdd;
     }
-    public static Node<Integer> oddEvenNodeList(Node<Integer> head){
-        return null;
+
+    public static Node<Integer> removeNthFromEnd(Node<Integer> head, int n) {
+        if (head == null || head.next == null) return null;
+
+        Node<Integer> slow = head;
+        Node<Integer> fast = head;
+        int count = 1;
+        while (count <= n && fast != null) {
+            fast = fast.next;
+            count++;
+        }
+
+        if (fast == null) {
+            return head.next;
+        }
+
+        while (fast.next != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        if (slow != null) {
+            slow.next = slow.next.next;
+        }
+        return head;
     }
 
     public static void main(String[] args) {
@@ -288,7 +310,7 @@ public class LinkedListUse {
 //        head = reverseRecursive(head);
         Node<Integer> head = takeInput();
 //        print(head);
-        head = oddEvenValueList(head);
+        head = removeNthFromEnd(head, 2);
         print(head);
 
 
