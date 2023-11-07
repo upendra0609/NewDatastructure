@@ -288,6 +288,35 @@ public class LinkedListUse {
         return head;
     }
 
+    public static Node<Integer> sort(Node<Integer> head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        Node<Integer> middle = middle(head);
+        Node<Integer> left = head;
+        Node<Integer> right = middle.next;
+        middle.next = null;
+        left = sort(left);
+        right = sort(right);
+        return mergeTwoSorted(left, right);
+    }
+
+    public static Node<Integer> middle(Node<Integer> head) {
+        Node<Integer> slow = null;
+        Node<Integer> fast = head;
+
+        while (fast != null && fast.next != null) {
+            if (slow == null) {
+                slow = head;
+            } else {
+                slow = slow.next;
+            }
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+
     public static Node<Integer> mergeTwoSorted(Node<Integer> first, Node<Integer> second) {
         Node<Integer> tempHead = null;
         Node<Integer> head = null;
@@ -348,9 +377,14 @@ public class LinkedListUse {
 //        print(head);
 //        head = removeNthFromEnd(head, 2);
 
-        Node<Integer> first = takeInput();
-        Node<Integer> second = takeInput();
-        Node<Integer> head = mergeTwoSorted(first, second);
+//        Node<Integer> first = takeInput();
+//        Node<Integer> second = takeInput();
+//        Node<Integer> head = mergeTwoSorted(first, second);
+
+        Node<Integer> head = takeInput();
+//        head = middle(head);
+        head = sort(head);
+//        System.out.println(head.data);
         print(head);
 
 
