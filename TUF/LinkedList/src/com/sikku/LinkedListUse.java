@@ -353,6 +353,48 @@ public class LinkedListUse {
         return tempHead;
     }
 
+    public static Node<Integer> sortListZeroOneTwo(Node<Integer> head) {
+        if (head == null || head.next == null) return head;
+        Node<Integer> zero = null;
+        Node<Integer> one = null;
+        Node<Integer> two = null;
+
+        while (head != null) {
+            if (head.data == 0) {
+                if (zero == null) {
+                    zero = head;
+                } else {
+                    zero.next = head;
+                    zero = zero.next;
+                }
+            } else if (head.data == 1) {
+                if (one == null) {
+                    one = head;
+                } else {
+                    one.next = head;
+                    one = one.next;
+                }
+            } else {
+                if (two == null) {
+                    two = head;
+                } else {
+                    two.next = head;
+                    two = two.next;
+                }
+            }
+
+            head = head.next;
+        }
+        if (zero != null) {
+            zero.next = one;
+        }
+        one.next = two;
+        if (two != null) {
+            two.next = null;
+        }
+        return zero;
+    }
+
     public static void main(String[] args) {
 //        Node<Integer> head = createLinkedList();
 //        increment(head);
