@@ -355,14 +355,19 @@ public class LinkedListUse {
 
     public static Node<Integer> sortListZeroOneTwo(Node<Integer> head) {
         if (head == null || head.next == null) return head;
+
         Node<Integer> zero = null;
+        Node<Integer> zeroHead = null;
         Node<Integer> one = null;
+        Node<Integer> oneHead = null;
         Node<Integer> two = null;
+        Node<Integer> twoHead = null;
 
         while (head != null) {
             if (head.data == 0) {
                 if (zero == null) {
                     zero = head;
+                    zeroHead = zero;
                 } else {
                     zero.next = head;
                     zero = zero.next;
@@ -370,6 +375,7 @@ public class LinkedListUse {
             } else if (head.data == 1) {
                 if (one == null) {
                     one = head;
+                    oneHead = one;
                 } else {
                     one.next = head;
                     one = one.next;
@@ -377,6 +383,7 @@ public class LinkedListUse {
             } else {
                 if (two == null) {
                     two = head;
+                    twoHead = two;
                 } else {
                     two.next = head;
                     two = two.next;
@@ -386,13 +393,15 @@ public class LinkedListUse {
             head = head.next;
         }
         if (zero != null) {
-            zero.next = one;
+            zero.next = oneHead;
         }
-        one.next = two;
+        if (one != null) {
+            one.next = twoHead;
+        }
         if (two != null) {
             two.next = null;
         }
-        return zero;
+        return zeroHead;
     }
 
     public static void main(String[] args) {
@@ -425,7 +434,7 @@ public class LinkedListUse {
 
         Node<Integer> head = takeInput();
 //        head = middle(head);
-        head = sort(head);
+        head = sortListZeroOneTwo(head);
 //        System.out.println(head.data);
         print(head);
 
