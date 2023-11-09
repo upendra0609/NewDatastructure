@@ -60,6 +60,29 @@ public class LinkedListUse {
         }
     }
 
+    public static Node<Integer> reverseKGroup(Node<Integer> head, int k) {
+        if (head == null || head.next == null) return head;
+
+        int size = size(head);
+        Node<Integer> dummy = null;
+        Node<Integer> temp = null;
+        Node<Integer> first = head;
+        if (size >= k) {
+            int count = 0;
+            while (head != null && count < k) {
+                temp = head.next;
+                head.next = dummy;
+                dummy = head;
+                head = temp;
+                count++;
+            }
+            first.next = reverseKGroup(temp, size - k);
+            return dummy;
+        } else {
+            return head;
+        }
+    }
+
     public static int get(Node<Integer> head, int position) {
         Node<Integer> temp = head;
         int i = 0;
@@ -85,7 +108,7 @@ public class LinkedListUse {
     public static int size(Node<Integer> head) {
         int n = 0;
         Node<Integer> temp = head;
-        while (temp.next != null) {
+        while (temp != null) {
             n++;
             temp = temp.next;
         }
@@ -434,8 +457,10 @@ public class LinkedListUse {
 
         Node<Integer> head = takeInput();
 //        head = middle(head);
-        head = sortListZeroOneTwo(head);
+//        head = sortListZeroOneTwo(head);
 //        System.out.println(head.data);
+        head = reverseKGroup(head, 4);
+
         print(head);
 
 
