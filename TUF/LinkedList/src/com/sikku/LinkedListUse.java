@@ -76,7 +76,7 @@ public class LinkedListUse {
                 head = temp;
                 count++;
             }
-            first.next = reverseKGroup(temp, size - k);
+            first.next = reverseKGroup(temp, k);
             return dummy;
         } else {
             return head;
