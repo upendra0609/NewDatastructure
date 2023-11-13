@@ -2,6 +2,7 @@ package com.sikku.printBit;
 
 public class Main {
     public static void main(String[] args) {
+
         int[] arr = bitManipulation(25, 3);
 
         for (int i : arr) {
