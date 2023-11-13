@@ -17,6 +17,7 @@ public class Main {
         return count;
     }
 
+//    Kernighan's algorithm
     public static int setBit1(int n) {
         int count = 0;
         while (n != 0) {
