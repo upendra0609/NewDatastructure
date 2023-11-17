@@ -29,7 +29,7 @@ public class SpiralReadMatrix {
             }
             right--;
 
-            //bottom (left to right) check for 1x3
+            //bottom (right to left) check for 1x3
             if (bottom >= top) {
                 for (int i = right; i >= left; i--) {
                     System.out.print(ar[bottom][i] + " ");
