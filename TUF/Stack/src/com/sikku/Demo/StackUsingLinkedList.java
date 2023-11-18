@@ -7,6 +7,7 @@ public class StackUsingLinkedList<T> {
     private Node<T> last;
     private int size;
 
+    //TC O(1)
     public void push(T t) {
         if (head == null) {
             head = new Node<>(t);
@@ -18,6 +19,7 @@ public class StackUsingLinkedList<T> {
         size++;
     }
 
+    //TC O(1)
     public T top() throws Exception {
         if (last == null) {
             throw new Exception("Empty Stack");
@@ -25,6 +27,7 @@ public class StackUsingLinkedList<T> {
         return head.data;
     }
 
+    //TC O(n)
     public T pop() throws Exception {
         if (last == null) {
             throw new Exception("Empty Stack");
@@ -45,10 +48,12 @@ public class StackUsingLinkedList<T> {
         return ans;
     }
 
+    //TC O(1)
     public boolean isEmpty() {
         return head == null;
     }
 
+    //TC O(1)
     public int size() {
         return size;
     }
