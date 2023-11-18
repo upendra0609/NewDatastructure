@@ -5,18 +5,17 @@ public class StackUsingArray<T> {
     private int topIndex = -1;
 
     public StackUsingArray() {
-        this.array = (T[]) new Object[10];
+        this.array = (T[]) new Object[5];
     }
 
-    public T push(T t) {
+    public StackUsingArray(int size) {
+        this.array = (T[]) new Object[size];
+    }
+
+    public T push(T t) throws Exception {
         if (topIndex == array.length - 1) {
-            T[] newArray = (T[]) new Object[(int) (array.length * 1.5)];
-            int i = 0;
-            for (T t1 : this.array) {
-                newArray[i] = t1;
-                i++;
-            }
-            this.array = newArray;
+            doubleCapacity();
+//            throw new Exception("Stack Full");
         }
         return this.array[++topIndex] = t;
     }
@@ -46,5 +45,16 @@ public class StackUsingArray<T> {
 
     public int size() {
         return topIndex + 1;
+    }
+
+    private void doubleCapacity() {
+        System.out.println("double");
+        T[] newArray = (T[]) new Object[(int) (array.length * 1.5)];
+        int i = 0;
+        for (T t1 : this.array) {
+            newArray[i] = t1;
+            i++;
+        }
+        this.array = newArray;
     }
 }
