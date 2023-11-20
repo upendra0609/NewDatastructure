@@ -22,6 +22,10 @@ public class Main {
 
     public static void reverse(StackUsingLinkedListBest<Integer> s1, StackUsingLinkedListBest<Integer> helper) throws Exception {
         reverse1(s1, helper);
+
+        while (!helper.isEmpty()) {
+            s1.push(helper.pop());
+        }
     }
 
     public static void reverse1(StackUsingLinkedListBest<Integer> s1, StackUsingLinkedListBest<Integer> helper) throws Exception {
@@ -34,10 +38,6 @@ public class Main {
             int x = s1.pop();
             reverse1(s1, helper);
             helper.push(x);
-        }
-
-        while (!helper.isEmpty()) {
-            s1.push(helper.pop());
         }
     }
 }
