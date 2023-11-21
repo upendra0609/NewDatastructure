@@ -49,7 +49,7 @@ public class Main {
             }
         }
 
-        // Function to return the top element of stack if it is present. Otherwise
+        // Function to return the top element of stack if it is present. Otherwise,
         // return -1.
         int top() {
             if (head == null) {
@@ -59,7 +59,7 @@ public class Main {
             }
         }
 
-        // Function to return minimum element of stack if it is present. Otherwise
+        // Function to return minimum element of stack if it is present. Otherwise,
         // return -1.
         int getMin() {
             min = Integer.MAX_VALUE;
