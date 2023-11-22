@@ -5,34 +5,35 @@ import java.util.Stack;
 public class Main {
     public static void main(String[] args) {
         infix("2+(5-3*6/2)");
+        infix("a+b+c+d-e");
     }
 
     public static void infix(String str) {
-        Stack<Integer> operands = new Stack<>();
+        Stack<String> operands = new Stack<>();
         Stack<Character> operators = new Stack<>();
         int n = str.length();
 
         for (int i = 0; i < n; i++) {
             char ch = str.charAt(i);
-            if (Character.isDigit(ch)) {
-                operands.push(ch - '0');
+            if (Character.isDigit(ch) || Character.isAlphabetic(ch)) {
+                operands.push(Character.toString(ch));
             } else if (ch == '(') {
                 operators.push(ch);
             } else if (ch == ')') {
                 while (operators.peek() != '(') {
-                    int b = operands.pop();
-                    int a = operands.pop();
+                    String b = operands.pop();
+                    String a = operands.pop();
                     char oprtr = operators.pop();
-                    int ans = solve(a, b, oprtr);
+                    String ans = solve(a, b, oprtr);
                     operands.push(ans);
                 }
                 operators.pop();
             } else {
                 while (operators.size() > 0 && operators.peek() != '(' && precedence(ch) <= precedence(operators.peek())) {
-                    int b = operands.pop();
-                    int a = operands.pop();
+                    String b = operands.pop();
+                    String a = operands.pop();
                     char oprtr = operators.pop();
-                    int ans = solve(a, b, oprtr);
+                    String ans = solve(a, b, oprtr);
                     operands.push(ans);
                 }
                 operators.push(ch);
@@ -41,25 +42,17 @@ public class Main {
         }
 
         while (operators.size() > 0) {
-            int b = operands.pop();
-            int a = operands.pop();
+            String b = operands.pop();
+            String a = operands.pop();
             char oprtr = operators.pop();
-            int ans = solve(a, b, oprtr);
+            String ans = solve(a, b, oprtr);
             operands.push(ans);
         }
         System.out.println(operands.pop());
     }
 
-    private static int solve(int a, int b, char oprtr) {
-        if (oprtr == '+') {
-            return a + b;
-        } else if (oprtr == '-') {
-            return a - b;
-        } else if (oprtr == '*') {
-            return a * b;
-        } else {
-            return a / b;
-        }
+    private static String solve(String a, String b, char oprtr) {
+        return a + b + oprtr;
     }
 
     private static int precedence(char ch) {
