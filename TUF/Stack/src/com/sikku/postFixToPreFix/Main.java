@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class Main {
     public static void main(String[] args) {
-
+        System.out.println(postfixToPrefix("ab+cd-*"));
     }
     public static String postfixToPrefix(String str) {
         Stack<String> stack = new Stack<>();

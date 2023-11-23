@@ -52,7 +52,7 @@ public class Main {
     }
 
     private static String solve(String a, String b, char oprtr) {
-        return a + b + oprtr;
+        return oprtr + a + b;
     }
 
     private static int precedence(char ch) {
