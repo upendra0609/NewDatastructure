@@ -7,32 +7,29 @@ import java.util.Stack;
 
 public class Main {
     public static void main(String[] args) {
-        nextGreaterElement(new int[]{2, 10, 12, 1, 11});
+        nextGreaterElement(new int[]{1, 2, 1});
     }
 
-    public static void nextGreaterElement(int[] nums2) {
+    public static int[] nextGreaterElement(int[] nums) {
         Stack<Integer> stack = new Stack<>();
-        HashMap<Integer, Integer> map = new HashMap<>();
 
-        int n = nums2.length;
+        int n = nums.length;
 
-        for (int i = 2 * n - 1; i >= n-1; i--) {
+        int[] ans = new int[n];
+
+        for (int i = 2 * n - 1; i >= 0; i--) {
             int nextMax = -1;
             int newIndex = i % n;
-            while (!stack.isEmpty() && stack.peek() < nums2[newIndex]) {
+            while (!stack.isEmpty() && stack.peek() <= nums[newIndex]) {
                 stack.pop();
             }
             if (!stack.isEmpty()) {
                 nextMax = stack.peek();
             }
-            stack.push(nums2[newIndex]);
-            map.put(nums2[newIndex], nextMax);
+            stack.push(nums[newIndex]);
+            ans[newIndex] = nextMax;
         }
 
-        Set<Map.Entry<Integer, Integer>> entrySet = map.entrySet();
-
-        for (Map.Entry<Integer, Integer> i : entrySet) {
-            System.out.println(i.getKey() + "  " + i.getValue());
-        }
+        return ans;
     }
 }
