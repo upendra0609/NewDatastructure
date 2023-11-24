@@ -1,8 +1,5 @@
 package com.sikku.nextGreaterElementCyclic;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
 import java.util.Stack;
 
 public class Main {
