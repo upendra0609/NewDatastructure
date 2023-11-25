@@ -20,11 +20,9 @@ public class Main {
                 while (!stack.isEmpty() && stack.peek() < Math.abs(asteroids[i]) && stack.peek() > 0) {
                     stack.pop();
                 }
-                if (!stack.isEmpty() && stack.peek() == Math.abs(asteroids[i]) && stack.peek() > 0) {
+                if (!stack.isEmpty() && stack.peek() == Math.abs(asteroids[i])) {
                     stack.pop();
-                } else if (!stack.isEmpty() && stack.peek() > Math.abs(asteroids[i]) && stack.peek() > 0) {
-
-                } else {
+                } else if (stack.isEmpty() || stack.peek() < 0) {
                     stack.push(asteroids[i]);
                 }
             }
