@@ -4,8 +4,11 @@ import java.util.Stack;
 
 public class Main {
     public static void main(String[] args) {
-        int[] arr1 = asteroidCollision(new int[]{-2, -2, -1, -2});
-        int[] arr2 = asteroidCollision(new int[]{5, 10, -5});
+//        int[] arr1 = asteroidCollision(new int[]{-2, -2, -1, -2});
+//        int[] arr2 = asteroidCollision(new int[]{5, 10, -5});
+
+
+
     }
 
     public static int[] asteroidCollision(int[] asteroids) {
