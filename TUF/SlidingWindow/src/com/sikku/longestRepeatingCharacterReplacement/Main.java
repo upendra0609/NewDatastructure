@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(characterReplacement("AABABBA",1));
+        System.out.println(characterReplacement("AABABBA", 1));
     }
 
     public static int characterReplacement(String s, int k) {
@@ -45,21 +45,20 @@ public class Main {
 
     public static int characterReplacementArray(String s, int k) {
         // end - start-maxcount>k-1
-        int start=0;
-        int maxcount=0;
-        int ans=0;
-        int c[]=new int[26];
-        int n=s.length();
-        for(int end=0;end<n;end++)
-        {
-            c[s.charAt(end)-'A']++;
-            maxcount=Math.max(maxcount,c[s.charAt(end)-'A']);
-            while(end-start-maxcount>k-1)
-            {
-                c[s.charAt(start++)-'A']--;
+        int start = 0;
+        int maxcount = 0;
+        int ans = 0;
+        int[] c = new int[26];
+        int n = s.length();
+        for (int end = 0; end < n; end++) {
+            int i = c[s.charAt(end) - 'A'];
+            i++;
+            maxcount = Math.max(maxcount, i);
+            while (end - start - maxcount > k - 1) {
+                c[s.charAt(start++) - 'A']--;
             }
             // System.out.println(start+" "+end+" "+maxcount);
-            ans=Math.max(ans,end-start+1);
+            ans = Math.max(ans, end - start + 1);
         }
         return ans;
     }
