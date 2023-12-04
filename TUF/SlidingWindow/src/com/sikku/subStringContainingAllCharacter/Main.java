@@ -25,4 +25,19 @@ public class Main {
         }
         return count;
     }
+
+    public static int numberOfSubstringsBetter(String s) {
+        int cnt_a=-1, cnt_b=-1, cnt_c=-1;
+
+        int i=0, res=0;
+        for(char ch : s.toCharArray()){
+            if(ch == 'a') cnt_a = i;
+            else if(ch == 'b') cnt_b = i;
+            else cnt_c= i;
+
+            if(i>1) res += (Math.min(cnt_a, Math.min(cnt_b, cnt_c)) +1);
+            i++;
+        }
+        return res;
+    }
 }
