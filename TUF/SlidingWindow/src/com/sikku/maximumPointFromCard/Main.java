@@ -30,8 +30,8 @@ public class Main {
         int n = cardPoints.length;
         int max = 0;
         int sum =0;
-        for(int i=0; i<n; i++){
-            sum += cardPoints[i];
+        for (int cardPoint : cardPoints) {
+            sum += cardPoint;
         }
 
         int right =0;
