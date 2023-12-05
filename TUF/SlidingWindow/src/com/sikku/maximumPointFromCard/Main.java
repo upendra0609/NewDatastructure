@@ -25,4 +25,32 @@ public class Main {
         }
         return max;
     }
+
+    public int maxScoreBetter(int[] cardPoints, int k) {
+        int n = cardPoints.length;
+        int max = 0;
+        int sum =0;
+        for(int i=0; i<n; i++){
+            sum += cardPoints[i];
+        }
+
+        int right =0;
+        int left =0;
+        int smallSum =0;
+
+        while(right<n-k){
+            smallSum +=cardPoints[right];
+            right++;
+        }
+        max = Math.max(max, sum - smallSum);
+
+        while(right<n){
+            smallSum +=  cardPoints[right];
+            smallSum -=  cardPoints[left];
+            max = Math.max(max, sum - smallSum);
+            left++;
+            right++;
+        }
+        return max;
+    }
 }
