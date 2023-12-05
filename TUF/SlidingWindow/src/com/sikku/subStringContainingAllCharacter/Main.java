@@ -2,8 +2,9 @@ package com.sikku.subStringContainingAllCharacter;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(max("acbbcac"));
+//        System.out.println(max("acbbcac"));
         System.out.println(max("abcabc"));
+        System.out.println(numberOfSubstringsBetter("abcabc"));
     }
 
     public static int max(String s) {
@@ -35,6 +36,8 @@ public class Main {
             else if(ch == 'b') cnt_b = i;
             else cnt_c= i;
 
+            //i>1 bcz if i==2 that means length will be 3 (0,1,2) and substring having at least one char of
+            // a,b,c must have at least 3 length
             if(i>1) res += (Math.min(cnt_a, Math.min(cnt_b, cnt_c)) +1);
             i++;
         }
