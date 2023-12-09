@@ -55,8 +55,9 @@ public class Map<K, V> {
     }
 
     private void rehash() {
+        System.out.println("Rehashing bucket " + numBucket + " size " + size());
         ArrayList<MapNode<K, V>> temp = bucket;
-        bucket = new ArrayList<>();
+        this.bucket = new ArrayList<>();
         for (int i = 0; i < numBucket * 2; i++) {
             bucket.add(null);
         }
@@ -68,7 +69,6 @@ public class Map<K, V> {
                 V value = head.value;
                 insert(key, value);
                 head = head.next;
-                size++;
             }
         }
     }
@@ -108,5 +108,9 @@ public class Map<K, V> {
 
     public int size() {
         return size;
+    }
+
+    public double loadFactor() {
+        return (1.0 * size) / numBucket;
     }
 }
