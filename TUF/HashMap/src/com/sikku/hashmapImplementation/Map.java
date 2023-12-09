@@ -1,8 +1,5 @@
 package com.sikku.hashmapImplementation;
 
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
@@ -51,6 +48,29 @@ public class Map<K, V> {
         newElementNode.next = head;
         bucket.set(bucketIndex, newElementNode);
         size++;
+        double loadFactor = (1.0 * size) / numBucket;
+        if (loadFactor > 0.7) {
+            rehash();
+        }
+    }
+
+    private void rehash() {
+        ArrayList<MapNode<K, V>> temp = bucket;
+        bucket = new ArrayList<>();
+        for (int i = 0; i < numBucket * 2; i++) {
+            bucket.add(null);
+        }
+        size = 0;
+        numBucket *= 2;
+        for (var head : temp) {
+            while (head != null) {
+                K key = head.key;
+                V value = head.value;
+                insert(key, value);
+                head = head.next;
+                size++;
+            }
+        }
     }
 
     public V getValue(K key) {
@@ -75,9 +95,10 @@ public class Map<K, V> {
                 if (prevNode != null) {
                     prevNode.next = head.next;
                 } else {
-                    return head.value;
+                    bucket.set(bucketIndex, head.next);
                 }
                 size--;
+                return head.value;
             }
             prevNode = head;
             head = head.next;
