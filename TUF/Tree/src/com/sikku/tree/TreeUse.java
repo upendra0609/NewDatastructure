@@ -24,11 +24,24 @@ public class TreeUse {
 //        TreeNode<Integer> root = takeInput(sc);
 
         TreeNode<Integer> root = takeInputLevelWise();
-        printLevelWise(root);
+//        printLevelWise(root);
         System.out.println("////////////");
 //        System.out.println("Node count: " + numNodes(root));
 //        System.out.println("largest node: " + largest(root));
-        System.out.println("Height: " + height(root));
+//        System.out.println("Height: " + height(root));
+        printAt(root,2);
+    }
+
+    public static void printAt(TreeNode<Integer> root, int k) {
+        if (k < 0) {
+            return;
+        }
+        if (k == 0) {
+            System.out.println(root.data);
+        }
+        for (TreeNode<Integer> i : root.children) {
+            printAt(i, k - 1);
+        }
     }
 
     public static int height(TreeNode<Integer> root) {
