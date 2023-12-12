@@ -6,6 +6,8 @@ import java.util.Queue;
 import java.util.Scanner;
 
 public class TreeUse {
+    private static int countNode;
+
     public static void main(String[] args) {
         /*TreeNode<Integer> root = new TreeNode<>(1);
         TreeNode<Integer> node1 = new TreeNode<>(2);
@@ -29,7 +31,53 @@ public class TreeUse {
 //        System.out.println("Node count: " + numNodes(root));
 //        System.out.println("largest node: " + largest(root));
 //        System.out.println("Height: " + height(root));
-        printAt(root,2);
+//        printAt(root, 2);
+//        System.out.println(countLeafNode(root));
+        postOrderTraversal(root);
+    }
+
+    public static void inOrderTraversal(TreeNode<Integer> root) {
+        if (root == null) {
+            return;
+        }
+        for (TreeNode<Integer> i : root.children) {
+            inOrderTraversal(i);
+        }
+        System.out.println(root.data);
+    }
+
+    public static void postOrderTraversal(TreeNode<Integer> root) {
+        if (root == null) {
+            return;
+        }
+        for (TreeNode<Integer> i : root.children) {
+            postOrderTraversal(i);
+        }
+        System.out.println(root.data);
+    }
+
+    public static void preOrderTraversal(TreeNode<Integer> root) {
+        if (root == null) {
+            return;
+        }
+        System.out.println(root.data);
+        for (TreeNode<Integer> i : root.children) {
+            preOrderTraversal(i);
+        }
+    }
+
+    public static int countLeafNode(TreeNode<Integer> root) {
+        if (root == null) {
+            return 0;
+        }
+        if (root.children.size() == 0) {
+            countNode++;
+        }
+
+        for (TreeNode<Integer> i : root.children) {
+            countLeafNode(i);
+        }
+        return countNode;
     }
 
     public static void printAt(TreeNode<Integer> root, int k) {
