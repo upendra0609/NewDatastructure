@@ -36,16 +36,6 @@ public class TreeUse {
         postOrderTraversal(root);
     }
 
-    public static void inOrderTraversal(TreeNode<Integer> root) {
-        if (root == null) {
-            return;
-        }
-        for (TreeNode<Integer> i : root.children) {
-            inOrderTraversal(i);
-        }
-        System.out.println(root.data);
-    }
-
     public static void postOrderTraversal(TreeNode<Integer> root) {
         if (root == null) {
             return;
