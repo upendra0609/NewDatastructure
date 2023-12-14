@@ -25,6 +25,16 @@ public class Main {
 
     }
 
+    public boolean isBalanced(TreeNode root) {
+        if (root.left != null && root.right != null) {
+            return isBalanced(root.left) && isBalanced(root.right);
+
+        } else {
+            return true;
+        }
+    }
+
+
     public static void findAll(TreeNode root) {
         Stack<Entry> stack = new Stack<>();
         if (root == null) {
