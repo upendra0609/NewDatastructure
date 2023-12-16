@@ -17,7 +17,13 @@ public class Main {
     }
 
 
+    public boolean isSameTreeM2(TreeNode p, TreeNode q) {
+        if (p == null || q == null) {
+            return p == q;
+        }
 
+        return isSameTreeM2(p.left, q.left) && isSameTreeM2(p.right, q.right) && (p.val == q.val);
+    }
 
 
 }
