@@ -1,9 +1,6 @@
 package com.sikku.leetcodeBT.printLevelWise;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,19 +9,20 @@ public class Main {
         TreeNode node2 = new TreeNode(20);
         TreeNode node3 = new TreeNode(15);
         TreeNode node4 = new TreeNode(7);
+        TreeNode node5 = new TreeNode(4);
+        TreeNode node6 = new TreeNode(2);
 
         root.left = node1;
         root.right = node2;
         node2.left = node3;
         node2.right = node4;
+        node1.left = node5;
+        node1.right = node6;
 
-        List<List<Integer>> l = print(root);
+        List<List<Integer>> l = printLevel(root);
 
         for (var i : l) {
-            for (var j : i) {
-                System.out.print(j + ", ");
-            }
-            System.out.println();
+            System.out.print(i + ", ");
         }
 
     }
@@ -48,7 +46,7 @@ public class Main {
             }
             for (TreeNode n : tempList) {
                 l.add(n.val);
-                if (index % 2 == 0) {
+                if (index % 2 != 0) {
                     if (n.right != null) {
                         queue.offer(n.right);
                     }
@@ -67,26 +65,48 @@ public class Main {
             }
             list.add(l);
         }
-
         return list;
     }
-}
 
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
+    public static List<List<Integer>> printLevel(TreeNode root) {
+        List<List<Integer>> list = new ArrayList<>();
+        if (root == null) {
+            return list;
+        }
 
-    TreeNode() {
-    }
+        int index = 0;
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
 
-    TreeNode(int val) {
-        this.val = val;
-    }
-
-    TreeNode(int val, TreeNode left, TreeNode right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
+        while (!queue.isEmpty()) {
+            List<TreeNode> tempList = new ArrayList<>();
+            while (!queue.isEmpty()) {
+                tempList.add(queue.remove());
+            }
+            List<Integer> temp = new ArrayList<>();
+            for (TreeNode n : tempList) {
+                temp.add(n.val);
+                if (n.right != null) {
+                    queue.offer(n.right);
+                }
+                if (n.left != null) {
+                    queue.offer(n.left);
+                }
+//                } else {
+                    /*if (n.left != null) {
+                        queue.offer(n.left);
+                    }
+                    if (n.right != null) {
+                        queue.offer(n.right);
+                    }*/
+//                }
+            }
+            if (index % 2 == 0) {
+                Collections.reverse(temp);
+            }
+            index++;
+            list.add(temp);
+        }
+        return list;
     }
 }
