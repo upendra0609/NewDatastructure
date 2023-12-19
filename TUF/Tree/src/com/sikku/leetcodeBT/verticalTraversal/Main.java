@@ -2,10 +2,7 @@ package com.sikku.leetcodeBT.verticalTraversal;
 
 import com.sikku.leetcodeBT.TreeNode;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.TreeMap;
+import java.util.*;
 import java.util.stream.Stream;
 
 public class Main {
@@ -24,7 +21,8 @@ public class Main {
         n2.right = n5;
         n3.left = n6;
         n3.right = n7;
-        verticalTraversal(root);
+        List<List<Integer>> lists = verticalTraversal(root);
+        System.out.println(lists);
     }
 
     public static List<List<Integer>> verticalTraversal(TreeNode root) {
@@ -35,6 +33,8 @@ public class Main {
         HashMap<TreeNode, Integer> hash = new HashMap<>();
         hash.put(root, 0);
         preOrder(root, hash);
+
+
 
         TreeMap<Integer, List<Integer>> h1 = new TreeMap<>(Integer::compare);
 
@@ -49,12 +49,10 @@ public class Main {
         }));
 
         Stream.of(h1).forEach(i ->
-            i.forEach((key, value) -> {
-                ans.add(value);
-//                System.out.println(value);
-            })
+                        i.forEach((key, value) -> {
+                            ans.add(value);
+                        })
         );
-//        System.out.println(ans.size());
         return ans;
     }
 
