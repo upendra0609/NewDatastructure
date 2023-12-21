@@ -13,8 +13,17 @@ public class BinaryTreeUse {
         root.right = node2;
         root.left = node1;*/
         BinaryTreeNode<Integer> root = takeInputLevelWise();
-        printLevelWise(root);
-        System.out.println(countNode(root));
+//        printLevelWise(root);
+//        System.out.println(countNode(root));
+//        System.out.println(diameter(root));
+//        inOrderPrint(root);
+//        removeLeafNode(root);
+//        printLevelWise(root);
+//
+//        mirrorBinary(root);
+//        printLevelWise(root);
+
+        System.out.println(isBalance(root));
 
     }
 
@@ -104,5 +113,87 @@ public class BinaryTreeUse {
         count += countNode(root.left);
         count += countNode(root.right);
         return count;
+    }
+
+    /*T.C.=> O(n*h)*/
+    public static int diameter(BinaryTreeNode<Integer> root) {
+        if (root == null) {
+            return 0;
+        }
+        int option1 = height(root.left) + height(root.right);
+        int option2 = diameter(root.left);
+        int option3 = diameter(root.right);
+        return Math.max(Math.max(option2, option3), option1);
+    }
+
+    public static int diameterOptimal(BinaryTreeNode<Integer> root) {
+        if (root == null) {
+            return 0;
+        }
+        int[] maxDia = new int[1];
+        maxDia[0] = Math.max(maxDia[0], height(root, maxDia));
+        return maxDia[0];
+    }
+
+    public static int height(BinaryTreeNode<Integer> root, int[] max) {
+        if (root == null) {
+            return 0;
+        }
+        int lh = height(root.left, max);
+        int rh = height(root.right, max);
+        max[0] = Math.max(max[0], lh + rh);
+        return Math.max(lh, rh) + 1;
+    }
+
+    public static int height(BinaryTreeNode<Integer> root) {
+        if (root == null) {
+            return 0;
+        }
+        int lh = height(root.left);
+        int rh = height(root.right);
+        return Math.max(lh, rh) + 1;
+    }
+
+    public static void inOrderPrint(BinaryTreeNode<Integer> root) {
+        if (root == null) {
+            return;
+        }
+
+        inOrderPrint(root.left);
+        System.out.println(root.data);
+        inOrderPrint(root.right);
+    }
+
+    public static BinaryTreeNode<Integer> removeLeafNode(BinaryTreeNode<Integer> root) {
+        if (root == null) {
+            return null;
+        } else if ((root.left == null && root.right == null)) {
+            return null;
+        }
+
+        root.left = removeLeafNode(root.left);
+        root.right = removeLeafNode(root.right);
+        return root;
+    }
+
+    public static void mirrorBinary(BinaryTreeNode<Integer> root) {
+        if (root == null) return;
+
+        mirrorBinary(root.left);
+        mirrorBinary(root.right);
+        BinaryTreeNode<Integer> temp = root.left;
+        root.left = root.right;
+        root.right = temp;
+    }
+
+    public static boolean isBalance(BinaryTreeNode<Integer> root) {
+        if (root == null) {
+            return true;
+        }
+        if ((root.left == null && root.right != null) || (root.right == null && root.left != null)) {
+            return false;
+        }
+
+        return isBalance(root.left) && isBalance(root.right);
     }
 }
